@@ -1,0 +1,29 @@
+#headerTitle {
+    background-color: #ffffff;
+    color: #ffa500;
+}
+
+#bar {
+    border: 10px solid #ffa500;
+}
+
+#barcode {
+    resize: none;
+}
+
+#logo {
+    background-image: url('../../lib/image/horse.png');
+    background-repeat: no-repeat;
+}
+
+::placeholder {
+    text-align: center;
+}
+
+.top-buffer {
+    margin-top: 20px;
+}
+
+.hidden {
+    display: none;
+}
