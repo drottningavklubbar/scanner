@@ -8,7 +8,7 @@ $results = null;
 
 try{
 	
-	$sql = $conn->prepare("SELECT * from Tasks_Name");
+	$sql = $conn->prepare("SELECT * from Barcode_Description");
 	$sql->execute();
 	$results = $sql->fetchall(PDO::FETCH_ASSOC);
 
@@ -26,7 +26,7 @@ try{
     <link rel="stylesheet" href="./lib/css/index.css">
     <link rel="stylesheet" href="./lib/css/bootstrap-datetimepicker.css">
 	
-    <title>Scan BarCodes</title>
+    <title>Scan Barcodes</title>
   </head>
   <body>
     <script src="./lib/js/jquery-3.4.1.min.js"></script>
@@ -40,7 +40,7 @@ try{
 			<div class="col-md-4 col-sm-4">
 			</div>
 			<div class="col-md-4 col-sm-4 text-center">
-				<h1 id="headerTitle" >Ticket Tracker</h1>
+				<h1 id="headerTitle" >Scan the barcode</h1>
 			</div>
 			<div class="col-md-4 col-sm-4">
 				<img src="./lib/image/conti.png" class="img-fluid float-right" alt="Responsive image">
@@ -61,27 +61,16 @@ try{
     <form id="mainForm">
 		<div class="container">
 			<div class="row text-center">
-				<div class="col-md-4">
-					
-				
+				<div class="col-md-">
+				<label for="barcode">Scan the Barcode</label>
+				<input maxlength="20" name="barcode" class="form-control" placeholder="Barcode" id="barcode"></input>
 				</div>
 				</div>
 				
-			</div>
-				
-					<div class="col-md-4 col-sm-4">
-						<label for="barcode">Barcode:</label>
-						<input maxlength="10" name="barcode" class="form-control" placeholder="Barcode" id="barcode"></input>
-					</div>
-				</div>
 			<div class="row text-center top-buffer">
-					<div class="col-md-4 col-sm-4">
-					</div>
-					<div class="col-md-4 col-sm-4">
+					<div class="col-md-12">
 						<button type="button" class="btn btn-primary" onclick="save();" id="saveBarCode">Save</button>
-					</div>
-					<div class="col-md-4 col-sm-4">
-					</div>
+					
 			</div>
 		</div>
 	</form>

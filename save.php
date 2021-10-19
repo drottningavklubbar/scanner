@@ -2,9 +2,7 @@
 	
 	require './db/db.php';
 	require './config/config.php';
-	//require './email/PHPMailer.php';
-	//require './email/SMTP.php';
-	
+		
 	$receivedData = file_get_contents('php://input');
 	
 	function outputMessage($type,$message){
@@ -34,10 +32,10 @@
 			
 			$timestamp = date('Y-m-d H:i:s');
 			 $sql = "INSERT INTO Barcode_Description (BarcodeTimestamp
-					  ,BarcodeDetails
+					  ,Barcode
 					  ) VALUES (?,?)";
 			$sql= $conn->prepare($sql);			
-			$status = $sql->execute([$data->barcode,$timestamp]);
+			$status = $sql->execute([$timestamp,$data->barcode]);
 			
 		}catch(Exception $e){
 			 outputMessage("error","Error".$e->getMessage());
@@ -53,19 +51,14 @@
 			$data = json_decode($receivedData);
 			
 			if(!validateData($data)){
-				throw new Exception("The field is empty!");
+				throw new UnexpectedValueException("The field is empty!");
 			}
 			
 			if(saveData($data)){
-				if(composeEmail($data)){
 					outputMessage("success","Save was successfully!");
-				}
 			}
-			
 		}catch(Exception $ex){
 			outputMessage("error",$ex->getMessage()); 
 		}
-	}else{
-		
 	}
 ?>

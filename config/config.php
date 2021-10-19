@@ -1,8 +1,8 @@
 <?php
 	GLOBAL $dbSettings; 
 	$dbSettings = array("user" => "NewSA",
-						"pass" => "Password@1234",
+						"pass" => "Portocal@",
 						"db" => "Barcodes",
-						"serverName" => "E5490-GHVDWT2");
+						"serverName" => "(localdb)\ProjectsV13");
 	
 ?>
